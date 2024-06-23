@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     liba2dpoffload \
+    firmware_aw_cali.bin_symlink \
     libaudiopreprocessing \
     libbundlewrapper \
     libdownmix \
