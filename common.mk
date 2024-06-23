@@ -366,6 +366,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
+# RFS MDM MPSS symlinks
+PRODUCT_PACKAGES += \
+    rfs_mdm_mpss_readonly_vendor_fsg_symlink
+
+# RFS MSM MPSS symlinks
+PRODUCT_PACKAGES += \
+    rfs_msm_mpss_readonly_vendor_fsg_symlink
+
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor \
