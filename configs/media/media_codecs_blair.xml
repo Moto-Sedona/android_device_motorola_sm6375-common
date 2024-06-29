@@ -79,6 +79,9 @@
 
 <MediaCodecs>
     <Include href="media_codecs_dolby_audio.xml" />
+    <Settings>
+        <Domain name="telephony" enabled="true" />
+    </Settings>
     <Decoders>
         <!-- C2 decoders -->
         <MediaCodec name="c2.qti.avc.decoder" type="video/avc">
