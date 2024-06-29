@@ -539,7 +539,7 @@ vendor/lib/libqcodec2_v4l2codec.so
 vendor/lib64/libmmosal.so
 
 # OEM
-vendor/bin/motobox
+vendor/bin/motobox;SYMLINK=vendor/bin/expat
 
 # Perfd Client(For FP it's required)
 vendor/lib64/libqti-perfd-client.so
