@@ -39,3 +39,6 @@ allow hal_fingerprint_default fingerprintd_data_file:file { create_file_perms };
 
 # Allow fingerprint HAL to get updates from health hal
 hal_client_domain(hal_fingerprint_default, hal_health)
+
+get_prop(hal_fingerprint_default, vendor_fingerprint_prop);
+set_prop(hal_fingerprint_default, vendor_fingerprint_prop);
