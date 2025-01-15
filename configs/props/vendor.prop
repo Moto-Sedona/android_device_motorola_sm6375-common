@@ -43,7 +43,7 @@ vendor.audio.volume.headset.gain.depcal=true
 vendor.audio_hal.period_size=192
 vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_multiplier=3
-vendor.voice.path.for.pcm.voip=true
+use.voice.path.for.pcm.voip=true
 
 # Audio feature
 vendor.audio.feature.dynamic_ecns.enable=false
@@ -54,7 +54,6 @@ vendor.audio.feature.anc_headset.enable=false
 vendor.audio.feature.compr_cap.enable=false
 vendor.audio.feature.compress_in.enable=true
 vendor.audio.feature.compress_meta_data.enable=true
-vendor.audio.feature.compr_voip.enable=true
 vendor.audio.feature.concurrent_capture.enable=true
 vendor.audio.feature.custom_stereo.enable=true
 vendor.audio.feature.display_port.enable=true
