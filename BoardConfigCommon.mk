@@ -48,10 +48,6 @@ BOARD_RAMDISK_USE_LZ4 := true
 TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE ?= kernel/motorola/msm-5.4
 
-# Platform
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := holi
-
 # A/B
 AB_OTA_UPDATER := true
 
