@@ -1,22 +1,22 @@
 # A/B partitions
-/dev/block/platform/soc/1d84000\.ufshc/by-name/fsg_[ab]         u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/logo_[ab]        u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/mdm1m9kefs3_[ab] u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/prov_[ab]        u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/spss_[ab]        u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/storsec_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/vendor_boot_[ab] u:object_r:boot_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/sd[df]                   u:object_r:vendor_gpt_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/fsg_[ab]         u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/logo_[ab]        u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/mdm1m9kefs3_[ab] u:object_r:vendor_efs_boot_dev:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/prov_[ab]        u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/spss_[ab]        u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/storsec_[ab]     u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/vendor_boot_[ab] u:object_r:boot_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/sd[df]                   u:object_r:vendor_gpt_block_device:s0
 
 # Block devices
 /dev/block/sd[d|f][0-9]                                         u:object_r:sdd_device:s0
 /dev/block/sd[d|f][0-9][0-9]                                    u:object_r:sdd_device:s0
 
 # UFS Devices
-/dev/block/platform/soc/1d84000\.ufshc/by-name/hw               u:object_r:vendor_hw_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/prodpersist      u:object_r:vendor_prodpersist_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/utags            u:object_r:vendor_utags_block_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/utagsBackup      u:object_r:vendor_utags_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/hw               u:object_r:vendor_hw_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/prodpersist      u:object_r:vendor_prodpersist_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/utags            u:object_r:vendor_utags_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/utagsBackup      u:object_r:vendor_utags_block_device:s0
 
 # Partition Mountpoints
 /fsg                                                    u:object_r:fsg_file:s0
@@ -72,7 +72,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.zui\.hardware\.ifaa@1\.0-service                 u:object_r:hal_ifaa_default_exec:s0
 
 # Label read_ahead_kb in /data partition
-/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/read_ahead_kb u:object_r:vendor_sysfs_scsi_host:s0
+/sys/devices/platform/soc/4804000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/read_ahead_kb u:object_r:vendor_sysfs_scsi_host:s0
 
 # Motobox
 /(vendor|system/vendor)/bin/motobox                     u:object_r:vendor_motobox_exec:s0
@@ -116,7 +116,6 @@
 /sys/devices/platform/soc/soc:qcom,cam-req-mgr/video4linux/video([0-9])+/name             u:object_r:vendor_sysfs_v4l2_name:s0
 
 # Vibrator
-/sys/devices/platform/soc/990000.i2c/i2c-1/1-005a/leds/vibrator(/.*)?                     u:object_r:vendor_sysfs_vibrator:s0
 /sys/devices/platform/soc/4c90000.i2c/i2c-3/3-005a/leds/vibrator(/.*)?                    u:object_r:vendor_sysfs_vibrator:s0
 
 # Wakeups
