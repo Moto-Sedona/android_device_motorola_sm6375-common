@@ -124,7 +124,7 @@ vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 vendor/etc/charger_fstab.qti
 
 # CNE
--vendor/app/CneApp/CneApp.apk
+-vendor/app/CneApp/CneApp.apk;NODEXPO
 vendor/bin/cnd
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml
@@ -342,7 +342,7 @@ vendor/lib64/hw/vendor.qti.hardware.eid@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.eid@1.0.so
 
 # EUICC
-product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+product/priv-app/EuiccGoogle/EuiccGoogle.apk;NODEXPO;PRESIGNED
 product/etc/permissions/android.hardware.telephony.euicc.xml
 product/etc/permissions/privapp-permissions-com.google.android.euicc.xml
 
@@ -356,7 +356,7 @@ vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # GNSS
--vendor/app/CACertService/CACertService.apk
+-vendor/app/CACertService/CACertService.apk;NODEXPO
 vendor/bin/hw/android.hardware.gnss@2.1-service-qti
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
@@ -619,20 +619,20 @@ vendor/lib64/libqmiservices.so
 vendor/lib64/libsubsystem_control.so
 
 # RIL
--product/app/uimgbaservice/uimgbaservice.apk
+-product/app/uimgbaservice/uimgbaservice.apk;NODEXPO
 product/etc/permissions/UimGba.xml
 product/etc/permissions/UimGbaManager.xml
 product/etc/permissions/UimService.xml
 product/framework/uimgbalibrary.jar
 product/framework/uimgbamanagerlibrary.jar
 product/framework/uimservicelibrary.jar
--system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
+-system_ext/app/QtiTelephonyService/QtiTelephonyService.apk;NODEXPO
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_libpermissions.xml
 system_ext/etc/permissions/qti_permissions.xml
 system_ext/framework/qcrilhook.jar
--system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
--vendor/app/IWlanService/IWlanService.apk
+-system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk;NODEXPO
+-vendor/app/IWlanService/IWlanService.apk;NODEXPO
 vendor/bin/ATFWD-daemon
 vendor/bin/adpl
 vendor/bin/hw/qcrilNrd
@@ -784,11 +784,11 @@ system/etc/permissions/moto-telephony.xml:system_ext/etc/permissions/moto-teleph
 system/framework/moto-telephony.jar:system_ext/framework/moto-telephony.jar
 
 # Radio - IMS (APK) - from bangkk patched
--system_ext/priv-app/ims/ims.apk
+-system_ext/priv-app/ims/ims.apk;NODEXPO
 system_ext/lib64/libimsmedia_jni.so
 
 # RIL - IMS
--system_ext/app/ImsRcsService/ImsRcsService.apk
+-system_ext/app/ImsRcsService/ImsRcsService.apk;NODEXPO
 system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml
 system_ext/framework/vendor.qti.ims.configservice-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.configservice-V1.1-java.jar
@@ -924,7 +924,7 @@ vendor/etc/init/init_thermal-engine.rc
 -vendor/lib64/libthermalclient.so
 
 # Time services
--vendor/app/TimeService/TimeService.apk
+-vendor/app/TimeService/TimeService.apk;NODEXPO
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
@@ -1072,7 +1072,7 @@ system_ext/lib64/libwfduibcsink.so
 system_ext/lib64/libwfduibcsinkinterface.so
 system_ext/lib64/libwfduibcsrc.so
 system_ext/lib64/libwfduibcsrcinterface.so
--system_ext/priv-app/WfdService/WfdService.apk
+-system_ext/priv-app/WfdService/WfdService.apk;NODEXPO
 vendor/bin/wfdhdcphalservice
 vendor/bin/wfdvndservice
 vendor/bin/wifidisplayhalservice
