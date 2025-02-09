@@ -1,15 +1,12 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2017-2023 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 set -e
-
-DEVICE=sm6375-common
-VENDOR=motorola
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -17,19 +14,20 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="${ANDROID_ROOT}/tools/extract-utils-old/extract_utils.sh"
+HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
 source "${HELPER}"
 
-# Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
+# Initialize the helper for common
+setup_vendor "${DEVICE_COMMON}" "${VENDOR_COMMON:-$VENDOR}" "${ANDROID_ROOT}" true
 
 # Warning headers and guards
-write_headers
+write_headers "bangkk corfur fogos penang rhodep miami"
 
+# The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Include IR blobs if needed
@@ -39,3 +37,17 @@ printf "%s\n" "endif" >> "${PRODUCTMK}"
 
 # Finish
 write_footers
+
+if [ -s "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" ]; then
+    # Reinitialize the helper for device
+    setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
+
+    # Warning headers and guards
+    write_headers
+
+    # The standard device blobs
+    write_makefiles "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" true
+
+    # Finish
+    write_footers
+fi
