@@ -17,7 +17,7 @@ ANDROID_ROOT="${MY_DIR}/../../.."
 export TARGET_ENABLE_CHECKELF=false
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
-if [ ! -f "${HELPER}" ]; then
+if [[ ! -f "${HELPER}" ]]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
@@ -31,7 +31,7 @@ ONLY_TARGET=
 KANG=
 SECTION=
 
-while [ "${#}" -gt 0 ]; do
+while [[ "${#}" -gt 0 ]]; do
     case "${1}" in
         -oc | --only-common)
             ONLY_COMMON=true
@@ -57,7 +57,7 @@ while [ "${#}" -gt 0 ]; do
     shift
 done
 
-if [ -z "${SRC}" ]; then
+if [[ -z "${SRC}" ]]; then
     SRC="adb"
 fi
 
@@ -80,25 +80,28 @@ function blob_fixup() {
             sed -i '/persist.vendor.radio.poweron_opt/ s/1/0/g' "${2}"
             ;;
         vendor/lib64/libwvhidl.so)
-            [ "$2" = "" ] && return 0
+            [[ -z "${2}" ]] && return 0
             grep -q libcrypto_shim.so "${2}" || "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
             ;;
     esac
 }
 
-if [ -z "${ONLY_TARGET}" ]; then
+if [[ -z "${ONLY_TARGET}" ]]; then
     # Initialize the helper for common device
     setup_vendor "${DEVICE_COMMON}" "${VENDOR_COMMON:-$VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
+    # Extract common proprietary files
     extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
     extract "${MY_DIR}/proprietary-files-fm.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files-carriersettings.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 fi
 
-if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" ]; then
+if [[ -z "${ONLY_COMMON}" ]] && [[ -s "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" ]]; then
     # Reinitialize the helper for device
     source "${MY_DIR}/../../${VENDOR}/${DEVICE}/extract-files.sh"
     setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
+    # Extract device-specific proprietary files
     extract "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 fi
 

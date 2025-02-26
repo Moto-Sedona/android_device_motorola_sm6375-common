@@ -17,7 +17,7 @@ ANDROID_ROOT="${MY_DIR}/../../.."
 export TARGET_ENABLE_CHECKELF=false
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
-if [ ! -f "${HELPER}" ]; then
+if [[ ! -f "${HELPER}" ]]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
@@ -31,6 +31,7 @@ write_headers "bangkk corfur fogos penang rhodep miami"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
+write_makefiles "${MY_DIR}/proprietary-files-carriersettings.txt" true
 
 # Include IR blobs if needed
 printf "\n%s\n" "ifeq (\$(TARGET_HAS_FM),true)" >> "${PRODUCTMK}"
@@ -40,7 +41,7 @@ printf "%s\n" "endif" >> "${PRODUCTMK}"
 # Finish
 write_footers
 
-if [ -s "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" ]; then
+if [[ -s "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" ]]; then
     # Reinitialize the helper for device
     setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
 
